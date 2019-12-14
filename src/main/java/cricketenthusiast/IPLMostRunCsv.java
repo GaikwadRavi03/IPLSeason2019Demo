@@ -32,7 +32,7 @@ public class IPLMostRunCsv {
     private int ballPhase;
 
     @CsvBindByName(column = "SR")
-    private double strikeRate;
+    public double strikeRate;
 
     @CsvBindByName(column = "100")
     private int century;
