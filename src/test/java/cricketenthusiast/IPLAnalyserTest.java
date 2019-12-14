@@ -1,8 +1,11 @@
 package cricketenthusiast;
 
+import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Type;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class IPLAnalyserTest {
@@ -50,6 +53,17 @@ public class IPLAnalyserTest {
             long actual = IPLAnalyser.batsmanDetails(HEADER_ERROR_RUNS_FACT_SHEET);
         } catch (IPLAnalyserException e) {
             Assert.assertEquals(IPLAnalyserException.ExceptionType.FILE_PROBLEM, e.type);
+        }
+    }
+
+    @Test
+    public void givenMessage_SortedListOfRuns_ShouldReturnTopBattingAveragePlayers() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData();
+            Assert.assertEquals("MS Dhoni",sortedIplData.get(0).player.trim());
+        } catch (IPLAnalyserException e) {
         }
     }
 }
