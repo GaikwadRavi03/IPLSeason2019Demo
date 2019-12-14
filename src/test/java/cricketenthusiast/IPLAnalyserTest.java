@@ -1,12 +1,9 @@
 package cricketenthusiast;
 
-import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class IPLAnalyserTest {
 
@@ -61,7 +58,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData();
+            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData(SortingFields.AVERAGE);
             Assert.assertEquals("MS Dhoni",sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -72,8 +69,19 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData();
+            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData(SortingFields.AVERAGE);
             Assert.assertEquals("Tim Southee",sortedIplData.get(100).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void givenMessage_SortedListOfRuns_ShouldReturnTopBatsman_ByStrikingRate() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData(SortingFields.STRIKE_RATE);
+            Assert.assertEquals("Ishant Sharma",sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
