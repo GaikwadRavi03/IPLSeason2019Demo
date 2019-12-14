@@ -3,22 +3,19 @@ package cricketenthusiast;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CricketEnthusiastTest {
+public class IPLAnalyserTest {
 
     private static final String RUNS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static final String WICKETS_FACT_SHEET = ".src/test/resources/IPL2019FactsheetMostWkts.csv";
+    private static final String WRONG_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns12.csv";
 
     @Test
     public void givenIPL2019_CSVFileShouldReturns_NoOFBatsmanRecords() {
-        CricketEnthusiast cricketEnthusiast = new CricketEnthusiast();
-        int actual = cricketEnthusiast.batsmanDetails(RUNS_FACT_SHEET);
-        Assert.assertEquals(101, actual);
-    }
-
-    @Test
-    public void givenIPL2019_CSVFileShouldReturns_NoOFBowlersRecords() {
-        CricketEnthusiast cricketEnthusiast = new CricketEnthusiast();
-//        int actual = cricketEnthusiast.bowlerDetails(WICKETS_FACT_SHEET);
-//        Assert.assertEquals(100, actual);
+        try {
+            IPLAnalyser IPLAnalyser = new IPLAnalyser();
+            int actual = IPLAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            Assert.assertEquals(101, actual);
+        } catch (IPLAnalyserException e) {
+        }
     }
 }
