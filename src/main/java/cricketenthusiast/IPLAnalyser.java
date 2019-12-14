@@ -1,7 +1,8 @@
 package cricketenthusiast;
 
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
+import opencsvbuilder.CSVBuilderException;
+import opencsvbuilder.CSVBuilderFactory;
+import opencsvbuilder.ICSVBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -11,19 +12,18 @@ import java.util.Iterator;
 import java.util.stream.StreamSupport;
 
 public class IPLAnalyser {
-    public int batsmanDetails(String filePath) {
-        int noOfPlayers = 0;
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get(filePath));
-            CsvToBeanBuilder<IPLMostRunCsv> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(IPLMostRunCsv.class);
-            csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<IPLMostRunCsv> csvToBean = csvToBeanBuilder.build();
-            Iterator<IPLMostRunCsv> censusCSVIterator = csvToBean.iterator();
-            Iterable<IPLMostRunCsv> csvIterator = () -> censusCSVIterator;
-            noOfPlayers = (int) StreamSupport.stream(csvIterator.spliterator(), false).count();
+    public long batsmanDetails(String filePath) throws IPLAnalyserException {
+        long count = 0;
+        try (Reader reader = Files.newBufferedReader(Paths.get(filePath))) {
+            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
+            Iterator<IPLMostRunCsv> csvFileIterator = csvBuilder.getCSVFileIterator(reader, IPLMostRunCsv.class);
+            Iterable<IPLMostRunCsv> csvIterable = () -> csvFileIterator;
+            count = StreamSupport.stream(csvIterable.spliterator(), false).count();
+        } catch (CSVBuilderException e) {
+            throw new IPLAnalyserException(IPLAnalyserException.ExceptionType.FILE_PROBLEM);
         } catch (IOException e) {
+            e.printStackTrace();
         }
-        return noOfPlayers;
+        return count;
     }
 }

@@ -32,7 +32,7 @@ public class IPLMostWicketsCsv {
     private String economy;
 
     @CsvBindByName(column = "SR")
-    private String sr;
+    private String strikeRate;
 
     @CsvBindByName(column = "4w")
     private String w4;
