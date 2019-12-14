@@ -9,6 +9,7 @@ public class IPLAnalyserTest {
 
     private static final String RUNS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static final String DELIMITER_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
+    private static final String HEADER_ERROR_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
     private static final String WICKETS_FACT_SHEET = ".src/test/resources/IPL2019FactsheetMostWkts.csv";
     private static final String WRONG_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns12.csv";
 
@@ -37,6 +38,16 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser IPLAnalyser = new IPLAnalyser();
             IPLAnalyser.batsmanDetails(DELIMITER_RUNS_FACT_SHEET);
+        } catch (IPLAnalyserException e) {
+            Assert.assertEquals(IPLAnalyserException.ExceptionType.FILE_PROBLEM, e.type);
+        }
+    }
+
+    @Test
+    public void givenIPL2019_CSVFileHeaderProb_ShouldReturnException() {
+        try {
+            IPLAnalyser IPLAnalyser = new IPLAnalyser();
+            long actual = IPLAnalyser.batsmanDetails(HEADER_ERROR_RUNS_FACT_SHEET);
         } catch (IPLAnalyserException e) {
             Assert.assertEquals(IPLAnalyserException.ExceptionType.FILE_PROBLEM, e.type);
         }
