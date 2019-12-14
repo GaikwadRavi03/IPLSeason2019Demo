@@ -4,43 +4,49 @@ import com.opencsv.bean.CsvBindByName;
 
 public class IPLMostRunCsv {
 
+    @CsvBindByName(column = "POS")
+    private int position;
+
     @CsvBindByName(column = "PLAYER")
-    private String player;
+    public String player;
 
     @CsvBindByName(column = "Mat")
-    private String matches;
+    private int matches;
 
     @CsvBindByName(column = "Inns")
-    private String innings;
+    private int innings;
 
     @CsvBindByName(column = "NO")
-    private String notOut;
+    private int notOut;
 
     @CsvBindByName(column = "Runs")
-    private String runs;
+    private int runs;
 
     @CsvBindByName(column = "HS")
     private String highestScore;
 
     @CsvBindByName(column = "Avg")
-    private String average;
+    public double average;
 
     @CsvBindByName(column = "BF")
-    private String ballPhase;
+    private int ballPhase;
 
     @CsvBindByName(column = "SR")
-    private String strikeRate;
+    private double strikeRate;
 
     @CsvBindByName(column = "100")
-    private String century;
+    private int century;
 
     @CsvBindByName(column = "50")
-    private String halfCentury;
+    private int halfCentury;
 
     @CsvBindByName(column = "6s")
-    private String sixes;
+    private int sixes;
 
     @CsvBindByName(column = "4s")
-    private String fours;
+    private int fours;
 
+    public double getAverage() {
+        return average;
+    }
 }
