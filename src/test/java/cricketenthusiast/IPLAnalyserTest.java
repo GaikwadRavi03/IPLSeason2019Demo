@@ -85,4 +85,15 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_ByStrikingRate() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            List<IPLMostRunCsv> sortedIplData=iplAnalyser.getStateWiseSortedCensusData(SortingFields.STRIKE_RATE);
+            Assert.assertEquals("Bhuvneshwar Kumar",sortedIplData.get(100).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
