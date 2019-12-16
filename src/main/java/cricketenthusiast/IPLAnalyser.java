@@ -24,6 +24,9 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.STRIKE_RATE, Comparator.comparing(census -> census.strikeRate));
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator());
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator().thenComparing(census -> census.strikeRate));
+        Comparator<IPLMostRunCsv> comparing = Comparator.comparing(census ->
+                census.average);
+        this.sortingMap.put(SortingFields.AVERAGE, comparing.thenComparing(census -> census.strikeRate));
     }
 
     public long batsmanDetails(String filePath) throws IPLAnalyserException {
