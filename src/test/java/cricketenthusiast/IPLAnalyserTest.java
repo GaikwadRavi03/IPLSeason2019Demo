@@ -129,4 +129,15 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_BySixesAndSixesWithStrikingRate() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
+            Assert.assertEquals("Shakib Al Hasan", sortedIplData.get(100).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
