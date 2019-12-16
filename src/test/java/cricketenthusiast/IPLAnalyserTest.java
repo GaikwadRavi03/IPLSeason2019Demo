@@ -151,4 +151,15 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_ByAverageWithStrikingRate() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
+            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
