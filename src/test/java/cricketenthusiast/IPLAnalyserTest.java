@@ -10,7 +10,7 @@ public class IPLAnalyserTest {
     private static final String RUNS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
     private static final String DELIMITER_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
     private static final String HEADER_ERROR_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
-    private static final String WICKETS_FACT_SHEET = ".src/test/resources/IPL2019FactsheetMostWkts.csv";
+    private static final String WICKETS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostWkts.csv";
     private static final String WRONG_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns12.csv";
 
     @Test
@@ -58,7 +58,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
             Assert.assertEquals("MS Dhoni", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -69,7 +69,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
             Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -80,7 +80,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.STRIKE_RATE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.STRIKE_RATE);
             Assert.assertEquals("Ishant Sharma", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -91,7 +91,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.STRIKE_RATE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.STRIKE_RATE);
             Assert.assertEquals("Bhuvneshwar Kumar", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -102,7 +102,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
             Assert.assertEquals("Andre Russell", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -113,7 +113,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
             Assert.assertEquals("Shakib Al Hasan", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -124,7 +124,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
             Assert.assertEquals("Andre Russell", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -135,7 +135,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.SIX_AND_FOURS);
             Assert.assertEquals("Shakib Al Hasan", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -146,7 +146,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
             Assert.assertEquals("MS Dhoni", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -157,7 +157,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
             Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -168,7 +168,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.RUNS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.RUNS);
             Assert.assertEquals("David Warner", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -179,8 +179,18 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLMostRunCsv> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.RUNS);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.RUNS);
             Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void givenIPL2019_CSVFileShouldReturns_NoOFBowlerRecords() {
+        try {
+            IPLAnalyser IPLAnalyser = new IPLAnalyser();
+            long actual = IPLAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
+            Assert.assertEquals(99, actual);
         } catch (IPLAnalyserException e) {
         }
     }
