@@ -16,12 +16,13 @@ public class IPLAnalyser {
 
     List<IPLMostRunCsv> iplMostRunCsvs = null;
     Map<SortingFields, Comparator<IPLMostRunCsv>> sortingMap = null;
-    Comparator<IPLMostRunCsv> runCsvComparator=null;
+
     public IPLAnalyser() {
         this.iplMostRunCsvs = new ArrayList();
         this.sortingMap = new HashMap<>();
         this.sortingMap.put(SortingFields.AVERAGE, Comparator.comparing(census -> census.average));
         this.sortingMap.put(SortingFields.STRIKE_RATE, Comparator.comparing(census -> census.strikeRate));
+        this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator());
     }
 
     public long batsmanDetails(String filePath) throws IPLAnalyserException {
@@ -37,8 +38,8 @@ public class IPLAnalyser {
         return iplMostRunCsvs.size();
     }
 
-    public List<IPLMostRunCsv> getStateWiseSortedCensusData(SortingFields fieldName) {
-        List<IPLMostRunCsv> sortedPlayer = (List<IPLMostRunCsv>) iplMostRunCsvs.stream()
+    public List<IPLMostRunCsv> sortedPlayersData(SortingFields fieldName) {
+        List<IPLMostRunCsv> sortedPlayer = iplMostRunCsvs.stream()
                 .sorted(sortingMap.get(fieldName).reversed())
                 .collect(Collectors.toList());
         return sortedPlayer;
