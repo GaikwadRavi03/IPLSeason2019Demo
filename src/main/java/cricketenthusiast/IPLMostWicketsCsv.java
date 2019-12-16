@@ -2,41 +2,41 @@ package cricketenthusiast;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class IPLMostWicketsCsv {
+public class IPLMostWicketsCsv extends IPLDAO {
 
     @CsvBindByName(column = "PLAYER")
-    private String player;
+    public String player;
 
     @CsvBindByName(column = "Mat")
-    private String matches;
+    public int matches;
 
     @CsvBindByName(column = "Inns")
-    private String innings;
+    public int innings;
 
     @CsvBindByName(column = "Ov")
-    private String overs;
+    public double overs;
 
     @CsvBindByName(column = "Runs")
-    private String runs;
+    public int runs;
 
     @CsvBindByName(column = "Wkts")
-    private String wickets;
+    public int wickets;
 
     @CsvBindByName(column = "BBI")
-    private String bbi;
+    public int bestBowlingIn;
 
     @CsvBindByName(column = "Avg")
-    private String average;
+    public double average;
 
     @CsvBindByName(column = "Econ")
-    private String economy;
+    public double economy;
 
     @CsvBindByName(column = "SR")
-    private String strikeRate;
+    public double strikeRate;
 
     @CsvBindByName(column = "4w")
-    private String w4;
+    public int fourWickets;
 
     @CsvBindByName(column = "5w")
-    private String w5;
+    public int fiveWickets;
 }

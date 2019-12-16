@@ -16,6 +16,15 @@ public class IPLDAO {
     public int halfCentury;
     public int sixes;
     public int fours;
+    public int bestBowlingIn;
+    public int fourWickets;
+    public int fiveWickets;
+    public double overs;
+    public double economy;
+    public int wickets;
+
+    public IPLDAO() {
+    }
 
     public IPLDAO(IPLMostRunCsv iplMostRunCsv) {
         position = iplMostRunCsv.position;
@@ -32,5 +41,20 @@ public class IPLDAO {
         halfCentury = iplMostRunCsv.halfCentury;
         sixes = iplMostRunCsv.sixes;
         fours = iplMostRunCsv.fours;
+    }
+
+    public IPLDAO(IPLMostWicketsCsv iplMostWicketsCsv) {
+        player = iplMostWicketsCsv.player;
+        matches = iplMostWicketsCsv.matches;
+        innings = iplMostWicketsCsv.innings;
+        overs = iplMostWicketsCsv.overs;
+        runs = iplMostWicketsCsv.runs;
+        wickets = iplMostWicketsCsv.wickets;
+        bestBowlingIn = iplMostWicketsCsv.bestBowlingIn;
+        average = iplMostWicketsCsv.average;
+        economy = iplMostWicketsCsv.economy;
+        strikeRate = iplMostWicketsCsv.strikeRate;
+        fourWickets = iplMostWicketsCsv.fourWickets;
+        fiveWickets = iplMostWicketsCsv.fiveWickets;
     }
 }

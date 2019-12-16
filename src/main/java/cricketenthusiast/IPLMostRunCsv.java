@@ -2,7 +2,7 @@ package cricketenthusiast;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class IPLMostRunCsv {
+public class IPLMostRunCsv extends IPLDAO {
 
     @CsvBindByName(column = "POS")
     public int position;
