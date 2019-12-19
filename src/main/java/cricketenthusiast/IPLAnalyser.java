@@ -23,6 +23,7 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.AVERAGE, Comparator.comparing(census -> census.average));
         this.sortingMap.put(SortingFields.STRIKE_RATE, Comparator.comparing(census -> census.strikeRate));
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator());
+        this.sortingMap.put(SortingFields.ECONOMY, Comparator.comparing(census -> census.economy));
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator().thenComparing(census -> census.strikeRate));
         Comparator<IPLDAO> comparing = Comparator.comparing(census -> census.average);
         this.sortingMap.put(SortingFields.AVERAGE, comparing.thenComparing(census -> census.strikeRate));
