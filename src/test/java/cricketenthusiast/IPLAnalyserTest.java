@@ -238,4 +238,26 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfWickets_ShouldReturnBestEconomyBowler() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.ECONOMY);
+            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void givenMessage_SortedListOfWickets_ShouldReturnWorstEconomyBowler() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.ECONOMY);
+            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
