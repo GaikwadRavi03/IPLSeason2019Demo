@@ -1,24 +1,17 @@
 package cricketenthusiast;
 
-import opencsvbuilder.CSVBuilderException;
-import opencsvbuilder.CSVBuilderFactory;
-import opencsvbuilder.ICSVBuilder;
-
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 public class IPLAnalyser {
 
-    List<IPLDAO> iplMostRunWicketsCsvs = null;
+    Map<String, IPLDAO> iplMostRunWicketsCsvs = null;
     Map<SortingFields, Comparator<IPLDAO>> sortingMap = null;
 
+    public enum cricketerTypes {BATSMAN, BOWLER}
+
     public IPLAnalyser() {
-        this.iplMostRunWicketsCsvs = new ArrayList();
+        this.iplMostRunWicketsCsvs = new HashMap<>();
         this.sortingMap = new HashMap<>();
         this.sortingMap.put(SortingFields.BAT_AVERAGE, Comparator.comparing(census -> census.batAverage));
         this.sortingMap.put(SortingFields.BAT_STRIKE_RATE, Comparator.comparing(census -> census.batStrikeRate));
@@ -40,36 +33,14 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.MAX_WICKET_AVERAGE, comparing3.thenComparing(census -> census.ballAverage).reversed());
     }
 
-    public long batsmanDetails(String filePath) throws IPLAnalyserException {
-        try (Reader reader = Files.newBufferedReader(Paths.get(filePath))) {
-            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
-            Iterator<IPLMostRunCsv> csvFileIterator = csvBuilder.getCSVFileIterator(reader, IPLMostRunCsv.class);
-            Iterable<IPLMostRunCsv> csvIterable = () -> csvFileIterator;
-            StreamSupport.stream(csvIterable.spliterator(), false).
-                    map(IPLMostRunCsv.class::cast).
-                    forEach(iplCsv -> iplMostRunWicketsCsvs.add(new IPLDAO(iplCsv)));
-        } catch (IOException | CSVBuilderException e) {
-            throw new IPLAnalyserException("Wrong File", IPLAnalyserException.ExceptionType.FILE_PROBLEM);
-        }
-        return iplMostRunWicketsCsvs.size();
-    }
-
-    public long bowlerDetails(String filePath) throws IPLAnalyserException {
-        try (Reader reader = Files.newBufferedReader(Paths.get(filePath))) {
-            ICSVBuilder csvBuilder = CSVBuilderFactory.createCSVBuilder();
-            Iterator<IPLMostWicketsCsv> csvFileIterator = csvBuilder.getCSVFileIterator(reader, IPLMostWicketsCsv.class);
-            Iterable<IPLMostWicketsCsv> csvIterable = () -> csvFileIterator;
-            StreamSupport.stream(csvIterable.spliterator(), false).
-                    map(IPLMostWicketsCsv.class::cast).
-                    forEach(iplCsv -> iplMostRunWicketsCsvs.add(new IPLDAO(iplCsv)));
-        } catch (IOException | CSVBuilderException e) {
-            throw new IPLAnalyserException("Wrong File", IPLAnalyserException.ExceptionType.FILE_PROBLEM);
-        }
+    public long loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
+        IplAdapter iplAdapter = IplAdapterFactory.getIplObject(type);
+        iplMostRunWicketsCsvs = iplAdapter.loadIplCricketData(filePath);
         return iplMostRunWicketsCsvs.size();
     }
 
     public List<IPLDAO> sortedPlayersData(SortingFields fieldName) {
-        List<IPLDAO> sortedPlayer = iplMostRunWicketsCsvs.stream()
+        List<IPLDAO> sortedPlayer = iplMostRunWicketsCsvs.values().stream()
                 .sorted(sortingMap.get(fieldName).reversed())
                 .collect(Collectors.toList());
         return sortedPlayer;

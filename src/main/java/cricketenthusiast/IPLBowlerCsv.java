@@ -2,7 +2,7 @@ package cricketenthusiast;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class IPLMostWicketsCsv extends IPLDAO {
+public class IPLBowlerCsv extends IPLDAO {
 
     @CsvBindByName(column = "PLAYER")
     public String player;

@@ -28,35 +28,35 @@ public class IPLDAO {
     public IPLDAO() {
     }
 
-    public IPLDAO(IPLMostRunCsv iplMostRunCsv) {
-        position = iplMostRunCsv.position;
-        player = iplMostRunCsv.player;
-        matches = iplMostRunCsv.matches;
-        innings = iplMostRunCsv.innings;
-        notOut = iplMostRunCsv.notOut;
-        runs = iplMostRunCsv.runs;
-        highestScore = iplMostRunCsv.highestScore;
-        batAverage = iplMostRunCsv.batAverage;
-        ballPhase = iplMostRunCsv.ballPhase;
-        batStrikeRate = iplMostRunCsv.batStrikeRate;
-        century = iplMostRunCsv.century;
-        halfCentury = iplMostRunCsv.halfCentury;
-        sixes = iplMostRunCsv.sixes;
-        fours = iplMostRunCsv.fours;
+    public IPLDAO(IPLBatsmanCsv iplBatsmanCsv) {
+        position = iplBatsmanCsv.position;
+        player = iplBatsmanCsv.player;
+        matches = iplBatsmanCsv.matches;
+        innings = iplBatsmanCsv.innings;
+        notOut = iplBatsmanCsv.notOut;
+        runs = iplBatsmanCsv.runs;
+        highestScore = iplBatsmanCsv.highestScore;
+        batAverage = iplBatsmanCsv.batAverage;
+        ballPhase = iplBatsmanCsv.ballPhase;
+        batStrikeRate = iplBatsmanCsv.batStrikeRate;
+        century = iplBatsmanCsv.century;
+        halfCentury = iplBatsmanCsv.halfCentury;
+        sixes = iplBatsmanCsv.sixes;
+        fours = iplBatsmanCsv.fours;
     }
 
-    public IPLDAO(IPLMostWicketsCsv iplMostWicketsCsv) {
-        player = iplMostWicketsCsv.player;
-        matches = iplMostWicketsCsv.matches;
-        innings = iplMostWicketsCsv.innings;
-        overs = iplMostWicketsCsv.overs;
-        runs = iplMostWicketsCsv.runs;
-        wickets = iplMostWicketsCsv.wickets;
-        bestBowlingIn = iplMostWicketsCsv.bestBowlingIn;
-        ballAverage = iplMostWicketsCsv.ballAverage;
-        economy = iplMostWicketsCsv.economy;
-        ballStrikeRate = iplMostWicketsCsv.ballStrikeRate;
-        fourWickets = iplMostWicketsCsv.fourWickets;
-        fiveWickets = iplMostWicketsCsv.fiveWickets;
+    public IPLDAO(IPLBowlerCsv iplBowlerCsv) {
+        player = iplBowlerCsv.player;
+        matches = iplBowlerCsv.matches;
+        innings = iplBowlerCsv.innings;
+        overs = iplBowlerCsv.overs;
+        runs = iplBowlerCsv.runs;
+        wickets = iplBowlerCsv.wickets;
+        bestBowlingIn = iplBowlerCsv.bestBowlingIn;
+        ballAverage = iplBowlerCsv.ballAverage;
+        economy = iplBowlerCsv.economy;
+        ballStrikeRate = iplBowlerCsv.ballStrikeRate;
+        fourWickets = iplBowlerCsv.fourWickets;
+        fiveWickets = iplBowlerCsv.fiveWickets;
     }
 }
