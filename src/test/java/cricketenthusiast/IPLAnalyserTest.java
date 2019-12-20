@@ -26,36 +26,6 @@ public class IPLAnalyserTest {
     }
 
     @Test
-    public void givenIPL2019_CSVFileWrong_ShouldReturnsException() {
-        try {
-            IPLAnalyser IPLAnalyser = new IPLAnalyser();
-            long actual = IPLAnalyser.loadCricketerData(WRONG_FACT_SHEET, cricketerTypes.BATSMAN);
-        } catch (IPLAnalyserException e) {
-            Assert.assertEquals("Wrong File", e.getMessage());
-        }
-    }
-
-    @Test
-    public void givenIPL2019_CSVFileDelimiterProb_ShouldReturnException() {
-        try {
-            IPLAnalyser IPLAnalyser = new IPLAnalyser();
-            IPLAnalyser.loadCricketerData(DELIMITER_RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
-        } catch (IPLAnalyserException e) {
-            Assert.assertEquals(IPLAnalyserException.ExceptionType.FILE_PROBLEM, e.type);
-        }
-    }
-
-    @Test
-    public void givenIPL2019_CSVFileHeaderProb_ShouldReturnException() {
-        try {
-            IPLAnalyser IPLAnalyser = new IPLAnalyser();
-            long actual = IPLAnalyser.loadCricketerData(HEADER_ERROR_RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
-        } catch (IPLAnalyserException e) {
-            Assert.assertEquals(IPLAnalyserException.ExceptionType.FILE_PROBLEM, e.type);
-        }
-    }
-
-    @Test
     public void givenMessage_SortedListOfRuns_ShouldReturnTopBattingAveragePlayers() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();

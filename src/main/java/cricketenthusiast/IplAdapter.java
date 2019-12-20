@@ -3,6 +3,7 @@ package cricketenthusiast;
 import opencsvbuilder.CSVBuilderException;
 import opencsvbuilder.CSVBuilderFactory;
 import opencsvbuilder.ICSVBuilder;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -30,9 +31,13 @@ public abstract class IplAdapter {
                         .map(IPLBowlerCsv.class::cast)
                         .forEach(iplBowlerCSV -> iplMap.put(iplBowlerCSV.player, new IPLDAO(iplBowlerCSV)));
             }
-            return iplMap;
-        } catch (IOException | CSVBuilderException e) {
+        } catch (IOException e) {
             throw new IPLAnalyserException("Wrong File", IPLAnalyserException.ExceptionType.FILE_PROBLEM);
+        } catch (CSVBuilderException e) {
+            throw new IPLAnalyserException("Wrong File", IPLAnalyserException.ExceptionType.CSV_BUILDER_ERROR);
+        } catch (RuntimeException e) {
+            throw new IPLAnalyserException("Wrong File", IPLAnalyserException.ExceptionType.NOT_SUFFICIENT_FILES);
         }
+        return iplMap;
     }
 }
