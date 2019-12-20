@@ -2,6 +2,8 @@ package cricketenthusiast;
 
 public class IPLDAO {
 
+    public double batAverage;
+    public double ballAverage;
     public int position;
     public String player;
     public int matches;
@@ -9,7 +11,6 @@ public class IPLDAO {
     public double notOut;
     public double runs;
     public int highestScore;
-    public double average;
     public int ballPhase;
     public double ballStrikeRate;
     public double batStrikeRate;
@@ -35,7 +36,7 @@ public class IPLDAO {
         notOut = iplMostRunCsv.notOut;
         runs = iplMostRunCsv.runs;
         highestScore = iplMostRunCsv.highestScore;
-        average = iplMostRunCsv.average;
+        batAverage = iplMostRunCsv.batAverage;
         ballPhase = iplMostRunCsv.ballPhase;
         batStrikeRate = iplMostRunCsv.batStrikeRate;
         century = iplMostRunCsv.century;
@@ -52,7 +53,7 @@ public class IPLDAO {
         runs = iplMostWicketsCsv.runs;
         wickets = iplMostWicketsCsv.wickets;
         bestBowlingIn = iplMostWicketsCsv.bestBowlingIn;
-        average = iplMostWicketsCsv.average;
+        ballAverage = iplMostWicketsCsv.ballAverage;
         economy = iplMostWicketsCsv.economy;
         ballStrikeRate = iplMostWicketsCsv.ballStrikeRate;
         fourWickets = iplMostWicketsCsv.fourWickets;

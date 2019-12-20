@@ -26,7 +26,7 @@ public class IPLMostRunCsv extends IPLDAO {
     public int highestScore;
 
     @CsvBindByName(column = "Avg")
-    public double average;
+    public double batAverage;
 
     @CsvBindByName(column = "BF")
     public int ballPhase;

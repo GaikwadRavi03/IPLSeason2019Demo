@@ -26,7 +26,7 @@ public class IPLMostWicketsCsv extends IPLDAO {
     public int bestBowlingIn;
 
     @CsvBindByName(column = "Avg")
-    public double average;
+    public double ballAverage;
 
     @CsvBindByName(column = "Econ")
     public double economy;
