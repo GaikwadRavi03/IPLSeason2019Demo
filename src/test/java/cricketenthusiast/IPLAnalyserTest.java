@@ -328,4 +328,26 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByWicketsWithAverage() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.MAX_WICKET_AVERAGE);
+            Assert.assertEquals("Imran Tahir", sortedIplData.get(98).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByWicketsWithAverage() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.MAX_WICKET_AVERAGE);
+            Assert.assertEquals("Shivam Dube", sortedIplData.get(0).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
