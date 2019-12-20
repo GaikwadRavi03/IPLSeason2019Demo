@@ -35,6 +35,9 @@ public class IPLAnalyser {
         Comparator<IPLDAO> comparing2 = Comparator.comparing(census -> census.ballStrikeRate);
         this.sortingMap.put(SortingFields.BALL_STRIKE_RATE_WITH_WICKETS, comparing2.thenComparing(new WicketsComparator()));
         this.sortingMap.put(SortingFields.AVERAGE_WITH_STRIKE_RATE, comparing1.thenComparing(census -> census.ballAverage));
+        this.sortingMap.put(SortingFields.WICKETS, Comparator.comparing(census -> census.wickets));
+        Comparator<IPLDAO> comparing3 = Comparator.comparing(census -> census.wickets);
+        this.sortingMap.put(SortingFields.MAX_WICKET_AVERAGE, comparing3.thenComparing(census -> census.ballAverage).reversed());
     }
 
     public long batsmanDetails(String filePath) throws IPLAnalyserException {
