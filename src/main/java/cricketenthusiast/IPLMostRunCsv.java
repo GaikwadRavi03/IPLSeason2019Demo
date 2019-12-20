@@ -32,7 +32,7 @@ public class IPLMostRunCsv extends IPLDAO {
     public int ballPhase;
 
     @CsvBindByName(column = "SR")
-    public double strikeRate;
+    public double batStrikeRate;
 
     @CsvBindByName(column = "100")
     public int century;

@@ -11,7 +11,8 @@ public class IPLDAO {
     public int highestScore;
     public double average;
     public int ballPhase;
-    public double strikeRate;
+    public double ballStrikeRate;
+    public double batStrikeRate;
     public int century;
     public int halfCentury;
     public int sixes;
@@ -36,7 +37,7 @@ public class IPLDAO {
         highestScore = iplMostRunCsv.highestScore;
         average = iplMostRunCsv.average;
         ballPhase = iplMostRunCsv.ballPhase;
-        strikeRate = iplMostRunCsv.strikeRate;
+        batStrikeRate = iplMostRunCsv.batStrikeRate;
         century = iplMostRunCsv.century;
         halfCentury = iplMostRunCsv.halfCentury;
         sixes = iplMostRunCsv.sixes;
@@ -53,7 +54,7 @@ public class IPLDAO {
         bestBowlingIn = iplMostWicketsCsv.bestBowlingIn;
         average = iplMostWicketsCsv.average;
         economy = iplMostWicketsCsv.economy;
-        strikeRate = iplMostWicketsCsv.strikeRate;
+        ballStrikeRate = iplMostWicketsCsv.ballStrikeRate;
         fourWickets = iplMostWicketsCsv.fourWickets;
         fiveWickets = iplMostWicketsCsv.fiveWickets;
     }

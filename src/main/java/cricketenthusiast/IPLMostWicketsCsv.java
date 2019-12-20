@@ -32,7 +32,7 @@ public class IPLMostWicketsCsv extends IPLDAO {
     public double economy;
 
     @CsvBindByName(column = "SR")
-    public double strikeRate;
+    public double ballStrikeRate;
 
     @CsvBindByName(column = "4w")
     public int fourWickets;
