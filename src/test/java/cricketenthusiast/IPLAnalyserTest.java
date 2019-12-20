@@ -59,7 +59,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BAT_AVERAGE);
             Assert.assertEquals("MS Dhoni", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -70,7 +70,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BAT_AVERAGE);
             Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -147,7 +147,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BAT_AVERAGE);
             Assert.assertEquals("MS Dhoni", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -158,7 +158,7 @@ public class IPLAnalyserTest {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
             iplAnalyser.batsmanDetails(RUNS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BAT_AVERAGE);
             Assert.assertEquals("Tim Southee", sortedIplData.get(100).player.trim());
         } catch (IPLAnalyserException e) {
         }
@@ -201,9 +201,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByAverage() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
-            Assert.assertEquals("Krishnappa Gowtham", sortedIplData.get(0).player.trim());
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_AVERAGE);
+            Assert.assertEquals("Suresh Raina", sortedIplData.get(98).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -212,9 +212,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByAverage() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
-            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.AVERAGE);
-            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
+            List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_AVERAGE);
+            Assert.assertEquals("Deepak Chahar", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -223,9 +223,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByStrikeRate() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_STRIKE_RATE);
-            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
+            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -234,9 +234,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByStrikeRate() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_STRIKE_RATE);
-            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+            Assert.assertEquals("Krishnappa Gowtham", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -245,9 +245,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnBestEconomyBowler() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.ECONOMY);
-            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
+            Assert.assertEquals("Shivam Dube", sortedIplData.get(98).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -256,9 +256,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnWorstEconomyBowler() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.ECONOMY);
-            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+            Assert.assertEquals("Ben Cutting", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -267,9 +267,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnTopBowlerBY5sAnd4s() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.WICKETS_FIVES_FOURES);
-            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
+            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -278,9 +278,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnWorstBowlerBY5sAnd4s() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.WICKETS_FIVES_FOURES);
-            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -289,9 +289,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByStrikeRateWithWickets() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_STRIKE_RATE_WITH_WICKETS);
-            Assert.assertEquals("Imran Tahir", sortedIplData.get(0).player.trim());
+            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -300,9 +300,9 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByStrikeRateWithWickets() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            iplAnalyser.batsmanDetails(WICKETS_FACT_SHEET);
+            iplAnalyser.bowlerDetails(WICKETS_FACT_SHEET);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.BALL_STRIKE_RATE_WITH_WICKETS);
-            Assert.assertEquals("Liam Livingstone", sortedIplData.get(98).player.trim());
+            Assert.assertEquals("Krishnappa Gowtham", sortedIplData.get(0).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
