@@ -3,6 +3,7 @@ package cricketenthusiast;
 import opencsvbuilder.CSVBuilderException;
 import opencsvbuilder.CSVBuilderFactory;
 import opencsvbuilder.ICSVBuilder;
+
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -19,31 +20,21 @@ public class IPLAnalyser {
     public IPLAnalyser() {
         this.iplMostRunWicketsCsvs = new ArrayList();
         this.sortingMap = new HashMap<>();
-
         this.sortingMap.put(SortingFields.BAT_AVERAGE, Comparator.comparing(census -> census.batAverage));
-
         this.sortingMap.put(SortingFields.BAT_STRIKE_RATE, Comparator.comparing(census -> census.batStrikeRate));
-
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator());
-
         this.sortingMap.put(SortingFields.ECONOMY, Comparator.comparing(census -> census.economy));
-
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator().thenComparing(census -> census.batStrikeRate));
-
         Comparator<IPLDAO> comparing = Comparator.comparing(census -> census.batAverage);
         this.sortingMap.put(SortingFields.BAT_AVERAGE, comparing.thenComparing(census -> census.batStrikeRate));
-
         Comparator<IPLDAO> comparing1 = Comparator.comparing(census -> census.runs);
         this.sortingMap.put(SortingFields.BALL_STRIKE_RATE, Comparator.comparing(census -> census.ballStrikeRate));
-
         this.sortingMap.put(SortingFields.RUNS, comparing1.thenComparing(census -> census.batAverage));
-
         this.sortingMap.put(SortingFields.BALL_AVERAGE, comparing1.thenComparing(census -> census.ballAverage));
-
         this.sortingMap.put(SortingFields.WICKETS_FIVES_FOURES, new WicketsComparator());
-
         Comparator<IPLDAO> comparing2 = Comparator.comparing(census -> census.ballStrikeRate);
         this.sortingMap.put(SortingFields.BALL_STRIKE_RATE_WITH_WICKETS, comparing2.thenComparing(new WicketsComparator()));
+        this.sortingMap.put(SortingFields.AVERAGE_WITH_STRIKE_RATE, comparing1.thenComparing(census -> census.ballAverage));
     }
 
     public long batsmanDetails(String filePath) throws IPLAnalyserException {
