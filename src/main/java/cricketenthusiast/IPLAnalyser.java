@@ -7,12 +7,14 @@ public class IPLAnalyser {
 
     Map<String, IPLDAO> iplMostRunWicketsCsvs = null;
     Map<SortingFields, Comparator<IPLDAO>> sortingMap = null;
+    Map<String, IPLDAO> allRounderMap = null;
 
     public enum cricketerTypes {BATSMAN, BOWLER}
 
     public IPLAnalyser() {
         this.iplMostRunWicketsCsvs = new HashMap<>();
         this.sortingMap = new HashMap<>();
+        allRounderMap = new HashMap<>();
         this.sortingMap.put(SortingFields.BAT_AVERAGE, Comparator.comparing(census -> census.batAverage));
         this.sortingMap.put(SortingFields.BAT_STRIKE_RATE, Comparator.comparing(census -> census.batStrikeRate));
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator());
@@ -31,16 +33,37 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.WICKETS, Comparator.comparing(census -> census.wickets));
         Comparator<IPLDAO> comparing3 = Comparator.comparing(census -> census.wickets);
         this.sortingMap.put(SortingFields.MAX_WICKET_AVERAGE, comparing3.thenComparing(census -> census.ballAverage).reversed());
+        Comparator<IPLDAO> comparing4 = Comparator.comparing(census -> census.batAverage);
+        this.sortingMap.put(SortingFields.BEST_BALL_BAT, comparing4.thenComparing(census -> census.ballAverage).reversed());
     }
 
-    public long loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
+    public Map<String, IPLDAO> loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
         IplAdapter iplAdapter = IplAdapterFactory.getIplObject(type);
         iplMostRunWicketsCsvs = iplAdapter.loadIplCricketData(filePath);
-        return iplMostRunWicketsCsvs.size();
+        return iplMostRunWicketsCsvs;
     }
 
     public List<IPLDAO> sortedPlayersData(SortingFields fieldName) {
         List<IPLDAO> sortedPlayer = iplMostRunWicketsCsvs.values().stream()
+                .sorted(sortingMap.get(fieldName).reversed())
+                .collect(Collectors.toList());
+        return sortedPlayer;
+    }
+
+    public List<IPLDAO> mergeAndSort(Map<String, IPLDAO> batsmanData, Map<String, IPLDAO> bowlerData, SortingFields fieldName) {
+
+        for (Map.Entry<String, IPLDAO> entry : batsmanData.entrySet()
+        ) {
+            for (Map.Entry<String, IPLDAO> entry1 : bowlerData.entrySet()
+            )
+                if (entry.getKey().equals(entry1.getKey())) {
+                    allRounderMap.put(entry.getKey(), new IPLDAO(entry.getValue()
+                            .player, entry.getValue()
+                            .batAverage, entry.getValue().ballAverage));
+                }
+        }
+
+        List<IPLDAO> sortedPlayer = allRounderMap.values().stream()
                 .sorted(sortingMap.get(fieldName).reversed())
                 .collect(Collectors.toList());
         return sortedPlayer;

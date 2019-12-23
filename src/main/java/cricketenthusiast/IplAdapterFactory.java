@@ -8,6 +8,6 @@ public class IplAdapterFactory extends IPLAnalyser {
         if (type.equals(IPLAnalyser.cricketerTypes.BOWLER)) {
             return new IplBowlerAdapter();
         }
-        throw new IPLAnalyserException("Unkonwn player type", IPLAnalyserException.ExceptionType.UNKNOWN_PLAYER);
+        throw new IPLAnalyserException("Unknown player type", IPLAnalyserException.ExceptionType.UNKNOWN_PLAYER);
     }
 }

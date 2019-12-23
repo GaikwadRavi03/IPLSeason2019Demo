@@ -28,6 +28,12 @@ public class IPLDAO {
     public IPLDAO() {
     }
 
+    public IPLDAO( String player,double batAverage, double ballAverage) {
+        this.batAverage = batAverage;
+        this.ballAverage = ballAverage;
+        this.player = player;
+    }
+
     public IPLDAO(IPLBatsmanCsv iplBatsmanCsv) {
         position = iplBatsmanCsv.position;
         player = iplBatsmanCsv.player;
