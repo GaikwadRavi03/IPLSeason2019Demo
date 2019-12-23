@@ -5,22 +5,20 @@ import org.junit.Test;
 import cricketenthusiast.IPLAnalyser.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class IPLAnalyserTest {
 
     private static final String RUNS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns.csv";
-    private static final String DELIMITER_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
-    private static final String HEADER_ERROR_RUNS_FACT_SHEET = "./src/test/resources/Delimiter_IPL2019FactsheetMostRuns.csv";
     private static final String WICKETS_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostWkts.csv";
-    private static final String WRONG_FACT_SHEET = "./src/test/resources/IPL2019FactsheetMostRuns12.csv";
 
     //----------------------Batsman's------------------
     @Test
     public void givenIPL2019_CSVFileShouldReturns_NoOFBatsmanRecords() {
         try {
             IPLAnalyser IPLAnalyser = new IPLAnalyser();
-            long actual = IPLAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
-            Assert.assertEquals(100, actual);
+            Map<String, IPLDAO> actual = IPLAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
+            Assert.assertEquals(100, actual.size());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -162,8 +160,8 @@ public class IPLAnalyserTest {
     public void givenIPL2019_CSVFileShouldReturns_NoOFBowlerRecords() {
         try {
             IPLAnalyser IPLAnalyser = new IPLAnalyser();
-            long actual = IPLAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
-            Assert.assertEquals(99, actual);
+            Map<String, IPLDAO> actual = IPLAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
+            Assert.assertEquals(99, actual.size());
         } catch (IPLAnalyserException e) {
         }
     }
@@ -318,6 +316,18 @@ public class IPLAnalyserTest {
             iplAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
             List<IPLDAO> sortedIplData = iplAnalyser.sortedPlayersData(SortingFields.MAX_WICKET_AVERAGE);
             Assert.assertEquals("Yusuf Pathan", sortedIplData.get(0).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
+
+    @Test
+    public void givenMessage_SortedListOfBoth_ShouldReturnTOPBowlerAndBatsman_ByAverage() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            Map<String, IPLDAO> batsmanAvg = iplAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
+            Map<String, IPLDAO> ballAvg = iplAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
+            List<IPLDAO> ipldaoList = iplAnalyser.mergeAndSort(batsmanAvg, ballAvg, SortingFields.BEST_BALL_BAT);
+            Assert.assertEquals("Andre Russell", ipldaoList.get(ipldaoList.size() - 1).player.trim());
         } catch (IPLAnalyserException e) {
         }
     }
