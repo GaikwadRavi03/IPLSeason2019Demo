@@ -22,7 +22,7 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.SIX_AND_FOURS, new SortingFieldsComparator().thenComparing(census -> census.batStrikeRate));
         Comparator<IPLDAO> comparing = Comparator.comparing(census -> census.batAverage);
         this.sortingMap.put(SortingFields.BAT_AVERAGE, comparing.thenComparing(census -> census.batStrikeRate));
-        Comparator<IPLDAO> comparing1 = Comparator.comparing(census -> census.runs);
+        Comparator<IPLDAO> comparing1 = Comparator.comparing(census -> census.batRuns);
         this.sortingMap.put(SortingFields.BALL_STRIKE_RATE, Comparator.comparing(census -> census.ballStrikeRate));
         this.sortingMap.put(SortingFields.RUNS, comparing1.thenComparing(census -> census.batAverage));
         this.sortingMap.put(SortingFields.BALL_AVERAGE, comparing1.thenComparing(census -> census.ballAverage));
@@ -33,10 +33,11 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.WICKETS, Comparator.comparing(census -> census.wickets));
         Comparator<IPLDAO> comparing3 = Comparator.comparing(census -> census.wickets);
         this.sortingMap.put(SortingFields.MAX_WICKET_AVERAGE, comparing3.thenComparing(census -> census.ballAverage).reversed());
+
         Comparator<IPLDAO> comparing4 = Comparator.comparing(census -> census.batAverage);
         this.sortingMap.put(SortingFields.BEST_BALL_BAT, comparing4.thenComparing(census -> census.ballAverage).reversed());
-        Comparator<IPLDAO> comparing5 = Comparator.comparing(census -> census.runs);
-        this.sortingMap.put(SortingFields.ALL_ROUNDER, comparing5.thenComparing(census -> census.wickets).reversed());
+        Comparator<IPLDAO> comparing5 = Comparator.comparing(census -> census.wickets);
+        this.sortingMap.put(SortingFields.ALL_ROUNDER, comparing5.thenComparing(census -> census.batRuns));
     }
 
     public Map<String, IPLDAO> loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
@@ -68,5 +69,16 @@ public class IPLAnalyser {
                 .sorted(sortingMap.get(fieldName).reversed())
                 .collect(Collectors.toList());
         return sortedPlayer;
+    }
+
+    public IPLDAO allRounder(List<IPLDAO> batsmanData, List<IPLDAO> bowlerData) {
+        for (IPLDAO batsman : batsmanData) {
+            for (IPLDAO bowler : bowlerData) {
+                if (batsman.player.trim().equals(bowler.player.trim())) {
+                    return batsman;
+                }
+            }
+        }
+        return null;
     }
 }

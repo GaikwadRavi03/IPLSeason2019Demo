@@ -336,10 +336,12 @@ public class IPLAnalyserTest {
     public void givenMessage_SortedListOfBoth_ShouldReturnAllRounderWithRunsAndWickets() {
         try {
             IPLAnalyser iplAnalyser = new IPLAnalyser();
-            Map<String, IPLDAO> batsmanAvg = iplAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
-            Map<String, IPLDAO> ballAvg = iplAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
-            List<IPLDAO> ipldaoList = iplAnalyser.mergeAndSort(batsmanAvg, ballAvg, SortingFields.ALL_ROUNDER);
-            Assert.assertEquals("Harpreet Brar", ipldaoList.get(ipldaoList.size() - 1).player.trim());
+            iplAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
+            List<IPLDAO> bat = iplAnalyser.sortedPlayersData(SortingFields.ALL_ROUNDER);
+            iplAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
+            List<IPLDAO> ball = iplAnalyser.sortedPlayersData(SortingFields.ALL_ROUNDER);
+            IPLDAO ipldaoList = iplAnalyser.allRounder(bat, ball);
+            Assert.assertEquals("Andre Russell", ipldaoList.player.trim());
         } catch (IPLAnalyserException e) {
         }
     }

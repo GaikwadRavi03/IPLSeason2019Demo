@@ -20,7 +20,7 @@ public class IPLBatsmanCsv extends IPLDAO {
     public int notOut;
 
     @CsvBindByName(column = "Runs")
-    public int runs;
+    public int batRuns;
 
     @CsvBindByName(column = "HS")
     public int highestScore;

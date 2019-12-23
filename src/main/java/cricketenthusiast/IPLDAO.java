@@ -9,7 +9,8 @@ public class IPLDAO {
     public int matches;
     public int innings;
     public double notOut;
-    public double runs;
+    public double batRuns;
+    public double ballRuns;
     public int highestScore;
     public int ballPhase;
     public double ballStrikeRate;
@@ -40,7 +41,7 @@ public class IPLDAO {
         matches = iplBatsmanCsv.matches;
         innings = iplBatsmanCsv.innings;
         notOut = iplBatsmanCsv.notOut;
-        runs = iplBatsmanCsv.runs;
+        batRuns = iplBatsmanCsv.batRuns;
         highestScore = iplBatsmanCsv.highestScore;
         batAverage = iplBatsmanCsv.batAverage;
         ballPhase = iplBatsmanCsv.ballPhase;
@@ -56,7 +57,7 @@ public class IPLDAO {
         matches = iplBowlerCsv.matches;
         innings = iplBowlerCsv.innings;
         overs = iplBowlerCsv.overs;
-        runs = iplBowlerCsv.runs;
+        ballRuns = iplBowlerCsv.ballRuns;
         wickets = iplBowlerCsv.wickets;
         bestBowlingIn = iplBowlerCsv.bestBowlingIn;
         ballAverage = iplBowlerCsv.ballAverage;

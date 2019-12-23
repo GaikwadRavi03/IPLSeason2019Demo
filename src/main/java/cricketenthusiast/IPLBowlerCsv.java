@@ -17,7 +17,7 @@ public class IPLBowlerCsv extends IPLDAO {
     public double overs;
 
     @CsvBindByName(column = "Runs")
-    public int runs;
+    public int ballRuns;
 
     @CsvBindByName(column = "Wkts")
     public int wickets;
