@@ -6,8 +6,13 @@ import java.util.stream.Collectors;
 public class IPLAnalyser {
 
     Map<String, IPLDAO> iplMostRunWicketsCsvs = null;
-    Map<SortingFields, Comparator<IPLDAO>> sortingMap = null;
+    Map<SortingFields, Comparator<IPLDAO>> sortingMap;
     Map<String, IPLDAO> allRounderMap = null;
+    IplAdapter adapter;
+
+    public void setAdapter(IplAdapter adapter) {
+        this.adapter = adapter;
+    }
 
     public enum cricketerTypes {BATSMAN, BOWLER}
 
@@ -40,8 +45,9 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.ALL_ROUNDER, comparing5.thenComparing(census -> census.batRuns));
     }
 
+
     public Map<String, IPLDAO> loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
-        IplAdapter iplAdapter = IplAdapterFactory.getIplObject(type);
+        IplAdapter iplAdapter = (IplAdapter) this.adapter.loadIplCricketData(filePath);
         iplMostRunWicketsCsvs = iplAdapter.loadIplCricketData(filePath);
         return iplMostRunWicketsCsvs;
     }
