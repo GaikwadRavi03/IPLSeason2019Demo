@@ -35,6 +35,8 @@ public class IPLAnalyser {
         this.sortingMap.put(SortingFields.MAX_WICKET_AVERAGE, comparing3.thenComparing(census -> census.ballAverage).reversed());
         Comparator<IPLDAO> comparing4 = Comparator.comparing(census -> census.batAverage);
         this.sortingMap.put(SortingFields.BEST_BALL_BAT, comparing4.thenComparing(census -> census.ballAverage).reversed());
+        Comparator<IPLDAO> comparing5 = Comparator.comparing(census -> census.runs);
+        this.sortingMap.put(SortingFields.ALL_ROUNDER, comparing5.thenComparing(census -> census.wickets).reversed());
     }
 
     public Map<String, IPLDAO> loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
@@ -51,7 +53,6 @@ public class IPLAnalyser {
     }
 
     public List<IPLDAO> mergeAndSort(Map<String, IPLDAO> batsmanData, Map<String, IPLDAO> bowlerData, SortingFields fieldName) {
-
         for (Map.Entry<String, IPLDAO> entry : batsmanData.entrySet()
         ) {
             for (Map.Entry<String, IPLDAO> entry1 : bowlerData.entrySet()
