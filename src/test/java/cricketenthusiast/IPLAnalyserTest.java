@@ -331,4 +331,16 @@ public class IPLAnalyserTest {
         } catch (IPLAnalyserException e) {
         }
     }
+
+    @Test
+    public void givenMessage_SortedListOfBoth_ShouldReturnAllRounderWithRunsAndWickets() {
+        try {
+            IPLAnalyser iplAnalyser = new IPLAnalyser();
+            Map<String, IPLDAO> batsmanAvg = iplAnalyser.loadCricketerData(RUNS_FACT_SHEET, cricketerTypes.BATSMAN);
+            Map<String, IPLDAO> ballAvg = iplAnalyser.loadCricketerData(WICKETS_FACT_SHEET, cricketerTypes.BOWLER);
+            List<IPLDAO> ipldaoList = iplAnalyser.mergeAndSort(batsmanAvg, ballAvg, SortingFields.ALL_ROUNDER);
+            Assert.assertEquals("Harpreet Brar", ipldaoList.get(ipldaoList.size() - 1).player.trim());
+        } catch (IPLAnalyserException e) {
+        }
+    }
 }
