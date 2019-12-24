@@ -1,0 +1,87 @@
+ˆ[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByStrikeRateWithWickets (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+ˆ[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_ByMinimumRunWithAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+‹[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByAverageRateWithWickets (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+}[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByStrikeRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+‡[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnBestBatsman_ByMaximumRunWithAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+‡[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByWicketsWithAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_ByStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+	|[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnTopBattingAveragePlayers (see javadoc for MockitoHint):
+	W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+	
+
+Œ[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByAverageRateWithStrikeRate (see javadoc for MockitoHint):
+
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+
+x[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnBestEconomyBowler (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+}[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnTopBatsman_ByStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+‰[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnBestBatsman_ByAverageWithStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+z[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByStrikeRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+{[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowlerBY5sAnd4s (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+Š[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByAverageWithStrikeRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnBestBatsman_BySixesAndSixesWithStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+a[MockitoHint] MockitoTest.givenSampleBowlerData_ShouldReturnCount (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+b[MockitoHint] MockitoTest.givenSampleBatsmanData_ShouldReturnCount (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+…[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowler_ByWicketsWithAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+€[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_BySixesAndSixes (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+y[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstEconomyBowler (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+Š[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_ByAverageWithStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnBestBatsman_BySixesAndSixes (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+|[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnWorstBowler_ByAverage (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorstBatsman_BySixesAndSixesWithStrikingRate (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
+y[MockitoHint] MockitoTest.givenMessage_SortedListOfWickets_ShouldReturnTopBowlerBY5sAnd4s (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:42)
+
+[MockitoHint] MockitoTest.givenMessage_SortedListOfRuns_ShouldReturnWorst_BattingAveragePlayers (see javadoc for MockitoHint):
+W[MockitoHint] 1. Unused -> at cricketenthusiast.MockitoTest.setUp(MockitoTest.java:52)
+
