@@ -47,8 +47,7 @@ public class IPLAnalyser {
 
 
     public Map<String, IPLDAO> loadCricketerData(String filePath, cricketerTypes type) throws IPLAnalyserException {
-        IplAdapter iplAdapter = (IplAdapter) this.adapter.loadIplCricketData(filePath);
-        iplMostRunWicketsCsvs = iplAdapter.loadIplCricketData(filePath);
+        iplMostRunWicketsCsvs = this.adapter.loadIplCricketData(filePath);
         return iplMostRunWicketsCsvs;
     }
 
